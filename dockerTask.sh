@@ -28,12 +28,12 @@ composeContainer () {
           publicPort=3000
           ;;
       "staging")
-          echo "Composing Azure Containers"
+          echo "Composing Staging Containers"
           # Check if container is already running, stop it and run a new one.
-          docker-compose -f docker-compose.yml -f docker-compose.azure.yml kill
+          docker-compose -f docker-compose.yml -f docker-compose.staging.yml kill
           # Create a container from the image.
           # --force-recreate 
-          docker-compose -f docker-compose.yml -f docker-compose.azure.yml up -d --force-recreate
+          docker-compose -f docker-compose.yml -f docker-compose.staging.yml up -d --force-recreate
           publicPort=8081
           ;;
       *)
